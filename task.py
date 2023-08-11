@@ -31,7 +31,8 @@ def work_with_notes():
             create_new_note(allNotes)
             save_note('notes.txt', allNotes)
         elif choice == 2:
-            show_all_notes(allNotes)
+            # show_all_notes(allNotes)
+            print(sorting(allNotes))
         elif choice == 3:
             date = get_search_date()
             print("The results: ")
@@ -61,6 +62,9 @@ def show_all_notes(allNotes:list):
         for key in elem:
             print(f'{key} : {elem[key]}')
         print()
+
+def sorting(allNotes):
+    return sorted(allNotes, key=lambda k: '.'.join(reversed(k['Date'].split('/'))))
     
 
 def find_by_date(allNotes: list, date: str):
